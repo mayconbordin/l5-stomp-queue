@@ -5,6 +5,11 @@ use Illuminate\Support\Arr;
 use Illuminate\Queue\Connectors\ConnectorInterface;
 use Mayconbordin\L5StompQueue\StompQueue;
 
+/**
+ * Class StompConnector
+ * @package Mayconbordin\L5StompQueue\Connectors
+ * @author Maycon Viana Bordin <mayconbordin@gmail.com>
+ */
 class StompConnector implements ConnectorInterface
 {
     /**

@@ -6,6 +6,11 @@ use Illuminate\Queue\Queue;
 use Illuminate\Contracts\Queue\Queue as QueueContract;
 use Mayconbordin\L5StompQueue\Jobs\StompJob;
 
+/**
+ * Class StompQueue
+ * @package Mayconbordin\L5StompQueue
+ * @author Maycon Viana Bordin <mayconbordin@gmail.com>
+ */
 class StompQueue extends Queue implements QueueContract
 {
     const SYSTEM_ACTIVEMQ = "activemq";
@@ -18,7 +23,7 @@ class StompQueue extends Queue implements QueueContract
     protected $stomp;
 
     /**
-     * The name of the default tube.
+     * The name of the default queue.
      *
      * @var string
      */

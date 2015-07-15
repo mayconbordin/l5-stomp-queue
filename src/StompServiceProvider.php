@@ -3,6 +3,11 @@
 use Illuminate\Support\ServiceProvider;
 use Mayconbordin\L5StompQueue\Connectors\StompConnector;
 
+/**
+ * Class StompServiceProvider
+ * @package Mayconbordin\L5StompQueue
+ * @author Maycon Viana Bordin <mayconbordin@gmail.com>
+ */
 class StompServiceProvider extends ServiceProvider
 {
     /**

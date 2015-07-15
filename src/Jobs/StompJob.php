@@ -7,6 +7,11 @@ use Illuminate\Container\Container;
 use Illuminate\Queue\Jobs\Job;
 use Illuminate\Contracts\Queue\Job as JobContract;
 
+/**
+ * Class StompJob
+ * @package Mayconbordin\L5StompQueue\Jobs
+ * @author Maycon Viana Bordin <mayconbordin@gmail.com>
+ */
 class StompJob extends Job implements JobContract
 {
     /**
