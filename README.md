@@ -1,7 +1,7 @@
 l5-stomp-queue
 ==============
 
-Stomp Queue Driver for Laravel 5.
+STOMP Queue Driver for Laravel 5.
 
 ## Installation
 
