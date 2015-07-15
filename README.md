@@ -48,19 +48,19 @@ The name of the system that implements the Stomp protocol. Default: `null`.
 
 This value is used for setting custom headers (not defined in the protocol). In the case of ActiveMQ, it will set the 
 `AMQ_SCHEDULED_DELAY` (see [docs](http://activemq.apache.org/nms/stomp-delayed-and-scheduled-message-feature.html))
- header in order to give support for the `later` method, defined at `Illuminate\Contracts\Queue`.
+header in order to give support for the `later` method, defined at `Illuminate\Contracts\Queue`.
  
- ### `sync`
+### `sync`
  
- Whether the driver should be synchronous or not when sending messages. Default: `false`.
+Whether the driver should be synchronous or not when sending messages. Default: `false`.
  
- ### `prefetchSize`
+### `prefetchSize`
  
- The number of messages that will be streamed to the consumer at any point in time. Applicable only to ActiveMQ. Default: `1`.
+The number of messages that will be streamed to the consumer at any point in time. Applicable only to ActiveMQ. Default: `1`.
  
- For more information see the [ActiveMQ documentation](http://activemq.apache.org/what-is-the-prefetch-limit-for.html).
+For more information see the [ActiveMQ documentation](http://activemq.apache.org/what-is-the-prefetch-limit-for.html).
  
- ### `clientId`
+### `clientId`
  
- Used for durable topic subscriptions. It will set the `activemq.subcriptionName` property. See [documentation](http://activemq.apache.org/stomp.html#Stomp-ActiveMQextensionstoStomp)
- for more information.
+Used for durable topic subscriptions. It will set the `activemq.subcriptionName` property. See [documentation](http://activemq.apache.org/stomp.html#Stomp-ActiveMQextensionstoStomp)
+for more information.
