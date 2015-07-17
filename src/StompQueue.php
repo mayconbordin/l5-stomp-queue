@@ -4,6 +4,7 @@ use FuseSource\Stomp\Frame;
 use FuseSource\Stomp\Stomp;
 use Illuminate\Queue\Queue;
 use Illuminate\Contracts\Queue\Queue as QueueContract;
+use Illuminate\Support\Arr;
 use Mayconbordin\L5StompQueue\Jobs\StompJob;
 
 /**
@@ -37,17 +38,26 @@ class StompQueue extends Queue implements QueueContract
     protected $system;
 
     /**
+     * The Stomp credentials for connection.
+     *
+     * @var array
+     */
+    protected $credentials;
+
+    /**
      * Create a new ActiveMQ queue instance.
      *
      * @param Stomp $stomp
      * @param string $default
      * @param string|null $system
+     * @param array $credentials [username=string, password=string]
      */
-    public function __construct(Stomp $stomp, $default, $system = null)
+    public function __construct(Stomp $stomp, $default, $system = null, array $credentials = [])
     {
-        $this->stomp   = $stomp;
-        $this->default = $default;
-        $this->system  = $system;
+        $this->stomp       = $stomp;
+        $this->default     = $default;
+        $this->system      = $system;
+        $this->credentials = $credentials;
     }
 
     /**
@@ -73,7 +83,7 @@ class StompQueue extends Queue implements QueueContract
      */
     public function pushRaw($payload, $queue = null, array $options = [])
     {
-        $this->stomp->send($this->getQueue($queue), $payload, $options);
+        $this->getStomp()->send($this->getQueue($queue), $payload, $options);
     }
 
     /**
@@ -112,8 +122,8 @@ class StompQueue extends Queue implements QueueContract
      */
     public function pop($queue = null)
     {
-        $this->stomp->subscribe($this->getQueue($queue));
-        $job = $this->stomp->readFrame();
+        $this->getStomp()->subscribe($this->getQueue($queue));
+        $job = $this->getStomp()->readFrame();
 
         if (!is_null($job)) {
             return new StompJob($this->container, $this, $job);
@@ -129,7 +139,7 @@ class StompQueue extends Queue implements QueueContract
      */
     public function deleteMessage($queue, $message)
     {
-        $this->stomp->ack($message);
+        $this->getStomp()->ack($message);
     }
 
     /**
@@ -141,6 +151,18 @@ class StompQueue extends Queue implements QueueContract
     public function getQueue($queue)
     {
         return $queue ?: $this->default;
+    }
+
+    /**
+     * @return Stomp
+     */
+    public function getStomp()
+    {
+        if (!$this->stomp->isConnected()) {
+            $this->stomp->connect(Arr::get($this->credentials, 'username', ''), Arr::get($this->credentials, 'password', ''));
+        }
+
+        return $this->stomp;
     }
 
     /**
