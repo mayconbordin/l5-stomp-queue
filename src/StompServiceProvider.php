@@ -1,6 +1,9 @@
 <?php namespace Mayconbordin\L5StompQueue;
 
+use FuseSource\Stomp\Stomp;
+use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
+use Mayconbordin\L5StompQueue\Broadcasters\StompBroadcaster;
 use Mayconbordin\L5StompQueue\Connectors\StompConnector;
 
 /**
@@ -25,6 +28,7 @@ class StompServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerStompConnector($this->app['queue']);
+        $this->registerStompBroadcaster($this->app->make('Illuminate\Broadcasting\BroadcastManager'));
     }
 
     /**
@@ -48,6 +52,23 @@ class StompServiceProvider extends ServiceProvider
     {
         $manager->addConnector('stomp', function() {
             return new StompConnector();
+        });
+    }
+
+    /**
+     * Register the Stomp queue broadcaster.
+     *
+     * @param \Illuminate\Broadcasting\BroadcastManager $manager
+     */
+    protected function registerStompBroadcaster($manager)
+    {
+        $manager->extend('stomp', function ($app, $config) {
+            $stomp = new Stomp($config['broker_url']);
+            $stomp->sync         = Arr::get($config, 'sync', false);
+            $stomp->prefetchSize = Arr::get($config, 'prefetchSize', 1);
+            $stomp->clientId     = Arr::get($config, 'clientId', null);
+
+            return new StompBroadcaster($stomp);
         });
     }
 
