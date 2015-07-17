@@ -1,7 +1,7 @@
 l5-stomp-queue
 ==============
 
-STOMP Queue Driver for Laravel 5.
+STOMP Queue and Broadcaster Driver for Laravel 5.
 
 ## Installation
 
@@ -23,6 +23,19 @@ Add the Service Provider to the `providers` array in `config/app.php`:
 ```
 
 And add the driver configuration to the `connections` array in `config/queue.php`:
+
+```php
+'connections' => array(
+    'stomp' => [
+        'driver'     => 'stomp',
+        'broker_url' => 'tcp://localhost:61613',
+        'queue'      => 'default',
+        'system'     => 'activemq'
+    ]
+)
+```
+
+And for the broadcaster add the same configuration to the `connections` array in `config/broadcasting.php`:
 
 ```php
 'connections' => array(
@@ -64,3 +77,7 @@ For more information see the [ActiveMQ documentation](http://activemq.apache.org
  
 Used for durable topic subscriptions. It will set the `activemq.subcriptionName` property. See [documentation](http://activemq.apache.org/stomp.html#Stomp-ActiveMQextensionstoStomp)
 for more information.
+
+### `username` and `password`
+
+Used for connecting to the Stomp server.
