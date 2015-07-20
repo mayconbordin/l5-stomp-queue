@@ -2,6 +2,7 @@
 
 use FuseSource\Stomp\Stomp;
 use Illuminate\Contracts\Broadcasting\Broadcaster;
+use Illuminate\Support\Arr;
 
 class StompBroadcaster implements Broadcaster
 {
