@@ -125,7 +125,7 @@ class StompQueue extends Queue implements QueueContract
         $this->getStomp()->subscribe($this->getQueue($queue));
         $job = $this->getStomp()->readFrame();
 
-        if (!is_null($job)) {
+        if (!is_null($job) && ($job instanceof Frame)) {
             return new StompJob($this->container, $this, $job);
         }
     }
