@@ -1,15 +1,17 @@
-<?php namespace Mayconbordin\L5StompQueue;
+<?php 
 
-use FuseSource\Stomp\Frame;
-use FuseSource\Stomp\Stomp;
+namespace Nfinzer\L5StompQueue;
+
+use Stomp\Transport\Frame;
+use Stomp\StatefulStomp as Stomp;
 use Illuminate\Queue\Queue;
 use Illuminate\Contracts\Queue\Queue as QueueContract;
 use Illuminate\Support\Arr;
-use Mayconbordin\L5StompQueue\Jobs\StompJob;
+use Nfinzer\L5StompQueue\Jobs\StompJob;
 
 /**
  * Class StompQueue
- * @package Mayconbordin\L5StompQueue
+ * @package Nfinzer\L5StompQueue
  * @author Maycon Viana Bordin <mayconbordin@gmail.com>
  */
 class StompQueue extends Queue implements QueueContract
@@ -123,7 +125,7 @@ class StompQueue extends Queue implements QueueContract
     public function pop($queue = null)
     {
         $this->getStomp()->subscribe($this->getQueue($queue));
-        $job = $this->getStomp()->readFrame();
+        $job = $this->getStomp()->read();
 
         if (!is_null($job) && ($job instanceof Frame)) {
             return new StompJob($this->container, $this, $job);
@@ -137,7 +139,7 @@ class StompQueue extends Queue implements QueueContract
      * @param  string|Frame $message
      * @return void
      */
-    public function deleteMessage($queue, $message)
+    public function deleteMessage($queue, Frame $message)
     {
         $this->getStomp()->ack($message);
     }
@@ -158,10 +160,11 @@ class StompQueue extends Queue implements QueueContract
      */
     public function getStomp()
     {
+        /*
         if (!$this->stomp->isConnected()) {
             $this->stomp->connect(Arr::get($this->credentials, 'username', ''), Arr::get($this->credentials, 'password', ''));
         }
-
+        */
         return $this->stomp;
     }
 

@@ -1,14 +1,17 @@
-<?php namespace Mayconbordin\L5StompQueue;
+<?php 
 
-use FuseSource\Stomp\Stomp;
+namespace Nfinzer\L5StompQueue;
+
+use Stomp\Client;
+use Stomp\StatefulStomp as Stomp;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
-use Mayconbordin\L5StompQueue\Broadcasters\StompBroadcaster;
-use Mayconbordin\L5StompQueue\Connectors\StompConnector;
+use Nfinzer\L5StompQueue\Broadcasters\StompBroadcaster;
+use Nfinzer\L5StompQueue\Connectors\StompConnector;
 
 /**
  * Class StompServiceProvider
- * @package Mayconbordin\L5StompQueue
+ * @package Nfinzer\L5StompQueue
  * @author Maycon Viana Bordin <mayconbordin@gmail.com>
  */
 class StompServiceProvider extends ServiceProvider
@@ -63,10 +66,10 @@ class StompServiceProvider extends ServiceProvider
     protected function registerStompBroadcaster($manager)
     {
         $manager->extend('stomp', function ($app, $config) {
-            $stomp = new Stomp($config['broker_url']);
-            $stomp->sync         = Arr::get($config, 'sync', false);
-            $stomp->prefetchSize = Arr::get($config, 'prefetchSize', 1);
-            $stomp->clientId     = Arr::get($config, 'clientId', null);
+            $stomp = new Stomp(new Client($config['broker_url']));
+            //$stomp->sync         = Arr::get($config, 'sync', false);
+            //$stomp->prefetchSize = Arr::get($config, 'prefetchSize', 1);
+            //$stomp->clientId     = Arr::get($config, 'clientId', null);
 
             return new StompBroadcaster($stomp);
         });
