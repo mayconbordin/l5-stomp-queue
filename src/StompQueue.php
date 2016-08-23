@@ -3,6 +3,7 @@
 namespace Nfinzer\L5StompQueue;
 
 use Stomp\Transport\Frame;
+use Stomp\Transport\Message;
 use Stomp\StatefulStomp as Stomp;
 use Illuminate\Queue\Queue;
 use Illuminate\Contracts\Queue\Queue as QueueContract;
@@ -85,7 +86,8 @@ class StompQueue extends Queue implements QueueContract
      */
     public function pushRaw($payload, $queue = null, array $options = [])
     {
-        $this->getStomp()->send($this->getQueue($queue), $payload, $options);
+        $message = new Message($payload);
+        $this->getStomp()->send($this->getQueue($queue), $message, $options);
     }
 
     /**
