@@ -6,7 +6,7 @@ use Stomp\Client;
 use Stomp\StatefulStomp;
 use Illuminate\Support\Arr;
 use Illuminate\Queue\Connectors\ConnectorInterface;
-use Mayconbordin\L5StompQueue\StompQueue;
+use Nfinzer\L5StompQueue\StompQueue;
 
 /**
  * Class StompConnector
