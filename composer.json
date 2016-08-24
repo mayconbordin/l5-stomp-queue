@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Nfinzer\\L5StompQueue\\": "src/"
+            "Mayconbordin\\L5StompQueue\\": "src/"
         }
     }
 }
