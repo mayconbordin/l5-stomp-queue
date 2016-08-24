@@ -1,12 +1,12 @@
 {
-    "name": "mayconbordin/l5-stomp-queue",
+    "name": "nfinzer/l5-stomp-queue",
     "description": "Stomp Queue Driver for Laravel 5",
     "keywords": ["laravel", "queue", "stomp", "laravel 5"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Maycon Viana Bordin",
-            "email": "mayconbordin@gmail.com"
+            "name": "Nicholas Finzer",
+            "email": "nfinzer@gmail.com"
         }
     ],
     "require": {
@@ -16,7 +16,7 @@
         "illuminate/queue": "5.0.x|5.1.x|5.2.x",
         "illuminate/broadcasting": "5.0.x|5.1.x|5.2.x",
         "symfony/process": "~2.6",
-        "fusesource/stomp-php" : "2.0.*"
+        "stomp-php/stomp-php" : "4.*"
     },
     "require-dev": {
       "phpunit/phpunit": "~4.0",

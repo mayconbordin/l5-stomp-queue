@@ -17,7 +17,7 @@ class StompQueueTest extends PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->stomp = m::mock('FuseSource\Stomp\Stomp');
+        $this->stomp = m::mock('Stomp\StatefulStomp');
         $this->stomp->shouldReceive('disconnect');
 
         $this->queue = new StompQueue($this->stomp, 'test');

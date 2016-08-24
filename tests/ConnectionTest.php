@@ -6,14 +6,14 @@ class ConnectionTest extends PHPUnit_Framework_TestCase {
     {
         // make a connection
         //$con = new \FuseSource\Stomp\Stomp("tcp://10.200.116.202:61613");
-        $con = new \FuseSource\Stomp\Stomp("tcp://localhost:61613");
+        $con = new \Stomp\StatefulStomp(new \Stomp\Client("tcp://localhost:61613"));
 
         $con->connect();
 
         $this->assertTrue($con->isConnected());
         $this->assertNotNull($con->getSessionId());
 
-        $con->send("teste", "hello");
+        $con->send("test", "hello");
 
         $con->disconnect();
     }

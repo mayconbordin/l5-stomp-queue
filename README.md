@@ -8,7 +8,7 @@ STOMP Queue and Broadcaster Driver for Laravel 5.
 In order to install l5-stomp-queue, just add
 
 ```json
-"mayconbordin/l5-stomp-queue": "dev-master"
+"nfinzer/l5-stomp-queue": "dev-master"
 ```
 	
 to your composer.json. Then run `composer install` or `composer update`.
@@ -18,7 +18,7 @@ Add the Service Provider to the `providers` array in `config/app.php`:
 ```php
 'providers' => array(
     ...
-    'Mayconbordin\L5StompQueue\StompServiceProvider',
+    'Nfinzer\L5StompQueue\StompServiceProvider',
 )
 ```
 

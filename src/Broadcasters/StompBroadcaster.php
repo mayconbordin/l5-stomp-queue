@@ -1,6 +1,8 @@
-<?php namespace Mayconbordin\L5StompQueue\Broadcasters;
+<?php 
 
-use FuseSource\Stomp\Stomp;
+namespace Mayconbordin\L5StompQueue\Broadcasters;
+
+use Stomp\StatefulStomp as Stomp;
 use Illuminate\Contracts\Broadcasting\Broadcaster;
 use Illuminate\Support\Arr;
 

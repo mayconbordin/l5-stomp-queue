@@ -1,6 +1,8 @@
-<?php namespace Mayconbordin\L5StompQueue\Jobs;
+<?php 
 
-use FuseSource\Stomp\Frame;
+namespace Mayconbordin\L5StompQueue\Jobs;
+
+use Stomp\Transport\Frame;
 use Mayconbordin\L5StompQueue\StompQueue;
 use Illuminate\Support\Arr;
 use Illuminate\Container\Container;
