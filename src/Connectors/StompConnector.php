@@ -1,16 +1,16 @@
 <?php 
 
-namespace Nfinzer\L5StompQueue\Connectors;
+namespace Mayconbordin\L5StompQueue\Connectors;
 
 use Stomp\Client;
 use Stomp\StatefulStomp;
 use Illuminate\Support\Arr;
 use Illuminate\Queue\Connectors\ConnectorInterface;
-use Nfinzer\L5StompQueue\StompQueue;
+use Mayconbordin\L5StompQueue\StompQueue;
 
 /**
  * Class StompConnector
- * @package Nfinzer\L5StompQueue\Connectors
+ * @package Mayconbordin\L5StompQueue\Connectors
  * @author Maycon Viana Bordin <mayconbordin@gmail.com>
  * @author Nicholas Finzer <nfinzer@gmail.com>
  */

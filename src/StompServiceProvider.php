@@ -1,17 +1,17 @@
 <?php 
 
-namespace Nfinzer\L5StompQueue;
+namespace Mayconbordin\L5StompQueue;
 
 use Stomp\Client;
 use Stomp\StatefulStomp as Stomp;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
-use Nfinzer\L5StompQueue\Broadcasters\StompBroadcaster;
-use Nfinzer\L5StompQueue\Connectors\StompConnector;
+use Mayconbordin\L5StompQueue\Broadcasters\StompBroadcaster;
+use Mayconbordin\L5StompQueue\Connectors\StompConnector;
 
 /**
  * Class StompServiceProvider
- * @package Nfinzer\L5StompQueue
+ * @package Mayconbordin\L5StompQueue
  * @author Maycon Viana Bordin <mayconbordin@gmail.com>
  */
 class StompServiceProvider extends ServiceProvider

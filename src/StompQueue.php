@@ -1,6 +1,6 @@
 <?php 
 
-namespace Nfinzer\L5StompQueue;
+namespace Mayconbordin\L5StompQueue;
 
 use Stomp\Transport\Frame;
 use Stomp\Transport\Message;
@@ -8,11 +8,11 @@ use Stomp\StatefulStomp as Stomp;
 use Illuminate\Queue\Queue;
 use Illuminate\Contracts\Queue\Queue as QueueContract;
 use Illuminate\Support\Arr;
-use Nfinzer\L5StompQueue\Jobs\StompJob;
+use Mayconbordin\L5StompQueue\Jobs\StompJob;
 
 /**
  * Class StompQueue
- * @package Nfinzer\L5StompQueue
+ * @package Mayconbordin\L5StompQueue
  * @author Maycon Viana Bordin <mayconbordin@gmail.com>
  */
 class StompQueue extends Queue implements QueueContract

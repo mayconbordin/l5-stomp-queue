@@ -1,6 +1,6 @@
 <?php 
 
-namespace Nfinzer\L5StompQueue\Broadcasters;
+namespace Mayconbordin\L5StompQueue\Broadcasters;
 
 use Stomp\StatefulStomp as Stomp;
 use Illuminate\Contracts\Broadcasting\Broadcaster;

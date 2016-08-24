@@ -1,9 +1,9 @@
 <?php 
 
-namespace Nfinzer\L5StompQueue\Jobs;
+namespace Mayconbordin\L5StompQueue\Jobs;
 
 use Stomp\Transport\Frame;
-use Nfinzer\L5StompQueue\StompQueue;
+use Mayconbordin\L5StompQueue\StompQueue;
 use Illuminate\Support\Arr;
 use Illuminate\Container\Container;
 use Illuminate\Queue\Jobs\Job;
@@ -11,7 +11,7 @@ use Illuminate\Contracts\Queue\Job as JobContract;
 
 /**
  * Class StompJob
- * @package Nfinzer\L5StompQueue\Jobs
+ * @package Mayconbordin\L5StompQueue\Jobs
  * @author Maycon Viana Bordin <mayconbordin@gmail.com>
  */
 class StompJob extends Job implements JobContract

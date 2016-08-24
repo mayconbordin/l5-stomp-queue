@@ -1,6 +1,6 @@
 <?php
 
-use Nfinzer\L5StompQueue\StompQueue;
+use Mayconbordin\L5StompQueue\StompQueue;
 use Mockery as m;
 
 class StompQueueTest extends PHPUnit_Framework_TestCase
