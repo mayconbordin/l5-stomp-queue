@@ -15,10 +15,10 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "5.0.x|5.1.x|5.2.x",
-        "illuminate/console": "5.0.x|5.1.x|5.2.x",
-        "illuminate/queue": "5.0.x|5.1.x|5.2.x",
-        "illuminate/broadcasting": "5.0.x|5.1.x|5.2.x",
+        "illuminate/support": "5.0.x|5.1.x|5.2.x|5.3.x",
+        "illuminate/console": "5.0.x|5.1.x|5.2.x|5.3.x",
+        "illuminate/queue": "5.0.x|5.1.x|5.2.x|5.3.x",
+        "illuminate/broadcasting": "5.0.x|5.1.x|5.2.x|5.3.x",
         "symfony/process": "~2.6",
         "stomp-php/stomp-php" : "4.*"
     },
