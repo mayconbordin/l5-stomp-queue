@@ -81,13 +81,13 @@ class StompQueue extends Queue implements QueueContract
      *
      * @param  string $payload
      * @param  string $queue
-     * @param  array $options
+     * @param  array $headers
      * @return mixed
      */
-    public function pushRaw($payload, $queue = null, array $options = [])
+    public function pushRaw($payload, $queue = null, array $headers = [])
     {
-        $message = new Message($payload);
-        $this->getStomp()->send($this->getQueue($queue), $message, $options);
+        $message = new Message($payload, $headers);
+        $this->getStomp()->send($this->getQueue($queue), $message);
     }
 
     /**
